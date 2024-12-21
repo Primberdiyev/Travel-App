@@ -4,7 +4,13 @@ import 'package:travel_app/utilities/app_texts.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
 
 class QuestionText extends StatelessWidget {
-  const QuestionText({super.key});
+  const QuestionText({
+    super.key,
+    required this.questionText,
+    required this.signText,
+  });
+  final String questionText;
+  final String signText;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +18,7 @@ class QuestionText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          AppTexts.haveAccount,
+          questionText,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
@@ -27,7 +33,7 @@ class QuestionText extends StatelessWidget {
             padding: EdgeInsets.zero,
           ),
           child: Text(
-            AppTexts.signUp,
+            signText,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,

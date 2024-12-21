@@ -6,6 +6,14 @@ class AppTexts {
   static const hintTextDot = '*********';
   static const signIn = 'SIGN IN';
   static const orSignInWith = 'or sign in with';
-  static const haveAccount = 'Don’t have an account? ';
+  static const dontHaveAccount = 'Don’t have an account? ';
   static const signUp = 'Sign up';
+  static const name = 'Name';
+  static const smith = 'ex: jon smith';
+  static const exampleEmail = 'ex: jon.smith@email.com';
+  static const confirmPassword = 'Confirm Password';
+  static const understood = '  I understood the';
+  static const terms = ' terms & policy';
+  static const orSignUp = 'or sign up with';
+  static const haveAccount = 'Have an account?';
 }

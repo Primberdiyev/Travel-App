@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/core/ui_kit/custom_button.dart';
 import 'package:travel_app/core/ui_kit/custom_text_field.dart';
-import 'package:travel_app/features/authorization/widgets/auth_button.dart';
+import 'package:travel_app/features/authorization/widgets/auth_buttons.dart';
 import 'package:travel_app/features/authorization/widgets/question_text.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_icons.dart';
@@ -83,27 +83,14 @@ class _AuthorizationPageState extends State<SignInPage> {
               AppTexts.orSignInWith,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              AuthButton(
-                iconPath: AppIcons.google.icon,
-                onPressed: () {},
-              ),
-              AuthButton(
-                iconPath: AppIcons.facebook.icon,
-                onPressed: () {},
-              ),
-              AuthButton(
-                iconPath: AppIcons.bird.icon,
-                onPressed: () {},
-              ),
-            ],
-          ),
+          AuthButtons(),
           SizedBox(
             height: 40,
           ),
-          QuestionText(),
+          QuestionText(
+            questionText: AppTexts.dontHaveAccount,
+            signText: AppTexts.signUp,
+          ),
         ],
       ),
     );

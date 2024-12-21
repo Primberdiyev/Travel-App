@@ -8,4 +8,5 @@ class AppColors {
   static const primary = Color(0xFF84D3FC);
   static const buttonColor = Color(0xFF7870DB);
   static const authButtonColor = Color(0xFFF4F4F4);
+  static const black = Color(0xFF000000);
 }
