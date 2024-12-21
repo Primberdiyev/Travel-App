@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "862046507104",
+    "firebase_url": "https://mychatapplication-568cd-default-rtdb.firebaseio.com",
+    "project_id": "mychatapplication-568cd",
+    "storage_bucket": "mychatapplication-568cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862046507104:android:173d6144c40b81feeaf305",
+        "android_client_info": {
+          "package_name": "com.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862046507104-rikereql7pgbpapp5s0vvmd6bs7l2sdg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWZayHQuwa7jum13vxQDQynCVRgkU6It4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862046507104-rikereql7pgbpapp5s0vvmd6bs7l2sdg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862046507104:android:b07fe3145b18f1baeaf305",
+        "android_client_info": {
+          "package_name": "com.example.travel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862046507104-rikereql7pgbpapp5s0vvmd6bs7l2sdg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWZayHQuwa7jum13vxQDQynCVRgkU6It4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862046507104-rikereql7pgbpapp5s0vvmd6bs7l2sdg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
