@@ -111,7 +111,9 @@ class _AuthorizationPageState extends State<SignInPage> {
               AppTexts.orSignInWith,
             ),
           ),
-          AuthButtons(),
+          AuthButtons(
+            isSignIn: true,
+          ),
           SizedBox(
             height: 40,
           ),
