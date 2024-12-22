@@ -16,4 +16,5 @@ class AppTexts {
   static const terms = ' terms & policy';
   static const orSignUp = 'or sign up with';
   static const haveAccount = 'Have an account?';
+  static const notRegistered = 'This user is not registered';
 }

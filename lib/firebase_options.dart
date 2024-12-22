@@ -65,6 +65,7 @@ class DefaultFirebaseOptions {
     projectId: 'mychatapplication-568cd',
     databaseURL: 'https://mychatapplication-568cd-default-rtdb.firebaseio.com',
     storageBucket: 'mychatapplication-568cd.firebasestorage.app',
+    androidClientId: '862046507104-bcraenjisd81rcjm8khlreab9gadf1aa.apps.googleusercontent.com',
     iosClientId: '862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n.apps.googleusercontent.com',
     iosBundleId: 'com.example.travelApp',
   );

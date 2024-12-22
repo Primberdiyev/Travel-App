@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      required this.topText,
-      required this.hintText,
-      required this.controller});
+  const CustomTextField({
+    super.key,
+    required this.topText,
+    required this.hintText,
+    required this.controller,
+  });
   final String topText;
   final String hintText;
   final TextEditingController controller;

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/utilities/app_colors.dart';
-import 'package:travel_app/utilities/app_texts.dart';
-import 'package:travel_app/utilities/routes/name_routes.dart';
 
 class QuestionText extends StatelessWidget {
   const QuestionText({
     super.key,
     required this.questionText,
     required this.signText,
+    this.onPressed,
   });
   final String questionText;
   final String signText;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,7 @@ class QuestionText extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, NameRoutes.signUp);
-          },
+          onPressed: onPressed,
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
           ),

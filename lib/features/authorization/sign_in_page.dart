@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/core/extensions/build_context_extension.dart';
 import 'package:travel_app/core/ui_kit/custom_button.dart';
 import 'package:travel_app/core/ui_kit/custom_text_field.dart';
+import 'package:travel_app/features/authorization/providers/auth_provider.dart';
 import 'package:travel_app/features/authorization/widgets/auth_buttons.dart';
 import 'package:travel_app/features/authorization/widgets/question_text.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/app_texts.dart';
+import 'package:travel_app/utilities/routes/name_routes.dart';
+import 'package:travel_app/utilities/statuses.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -68,11 +73,34 @@ class _AuthorizationPageState extends State<SignInPage> {
               controller: passwordController,
             ),
           ),
-          CustomButton(
-            leftColor: AppColors.primary,
-            rightColor: AppColors.buttonColor,
-            text: AppTexts.signIn,
-          ),
+          Consumer<AuthProvider>(builder: (
+            context,
+            provider,
+            child,
+          ) {
+            return CustomButton(
+              isLoading: provider.state == Statuses.loading,
+              leftColor: AppColors.primary,
+              rightColor: AppColors.buttonColor,
+              text: AppTexts.signIn,
+              onPressed: () {
+                provider
+                    .signIn(
+                  email: emailController.text,
+                  password: passwordController.text,
+                )
+                    .then((_) {
+                  if (context.mounted && provider.state == Statuses.completed) {
+                    Navigator.pushReplacementNamed(context, NameRoutes.home);
+                  } else {
+                    if (context.mounted) {
+                      context.showSnackBar(AppTexts.notRegistered);
+                    }
+                  }
+                });
+              },
+            );
+          }),
           Padding(
             padding: EdgeInsets.only(
               top: 26,
@@ -90,6 +118,9 @@ class _AuthorizationPageState extends State<SignInPage> {
           QuestionText(
             questionText: AppTexts.dontHaveAccount,
             signText: AppTexts.signUp,
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, NameRoutes.signUp);
+            },
           ),
         ],
       ),

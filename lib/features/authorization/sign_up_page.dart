@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/core/extensions/build_context_extension.dart';
 import 'package:travel_app/core/ui_kit/custom_button.dart';
 import 'package:travel_app/core/ui_kit/custom_text_field.dart';
+import 'package:travel_app/features/authorization/providers/auth_provider.dart';
 import 'package:travel_app/features/authorization/widgets/agree_condition.dart';
 import 'package:travel_app/features/authorization/widgets/auth_buttons.dart';
 import 'package:travel_app/features/authorization/widgets/question_text.dart';
@@ -30,6 +33,26 @@ class _SignUpPageState extends State<SignUpPage> {
     passwordController.dispose();
     confirmController.dispose();
     super.dispose();
+  }
+
+  String checkPassword() {
+    final RegExp emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
+    if (passwordController.text != confirmController.text) {
+      return 'Error on Cofirm Password';
+    } else if (nameController.text.isEmpty) {
+      return "Name must not be emty";
+    } else if (!emailRegex.hasMatch(emailController.text)) {
+      return 'Error on Email';
+    } else if (emailController.text.isEmpty) {
+      return 'Email must not be empty';
+    } else if (passwordController.text.isEmpty) {
+      return 'Password must not be empty';
+    } else if (confirmController.text.isEmpty) {
+      return 'Confirm Password must not be empty';
+    }
+    return '';
   }
 
   @override
@@ -117,11 +140,40 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: AgreeCondition(),
           ),
-          CustomButton(
-            leftColor: AppColors.primary,
-            rightColor: AppColors.buttonColor,
-            text: AppTexts.signUp,
-          ),
+          Consumer<AuthProvider>(builder: (
+            context,
+            provider,
+            child,
+          ) {
+            return CustomButton(
+              isLoading: provider.state.isLoading,
+              leftColor: AppColors.primary,
+              rightColor: AppColors.buttonColor,
+              text: AppTexts.signUp,
+              onPressed: () {
+                final result = checkPassword();
+                if (result.isEmpty) {
+                  provider
+                      .signUp(
+                    email: emailController.text,
+                    password: passwordController.text,
+                  )
+                      .then(
+                    (_) {
+                      if (context.mounted) {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          NameRoutes.home,
+                        );
+                      }
+                    },
+                  );
+                } else {
+                  context.showSnackBar(result);
+                }
+              },
+            );
+          }),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 23),
             child: Text(
@@ -131,11 +183,14 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           AuthButtons(),
           SizedBox(
-            height: 10,
+            height: 26,
           ),
           QuestionText(
             questionText: AppTexts.haveAccount,
             signText: AppTexts.signIn,
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, NameRoutes.signIn);
+            },
           ),
         ],
       ),

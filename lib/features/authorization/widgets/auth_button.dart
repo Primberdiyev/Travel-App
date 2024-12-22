@@ -7,9 +7,11 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.iconPath,
     this.onPressed,
+    this.isLoading = false,
   });
   final String iconPath;
   final VoidCallback? onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class AuthButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: SvgPicture.asset(iconPath),
+      
     );
   }
 }

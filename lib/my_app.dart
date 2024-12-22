@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/features/authorization/providers/auth_provider.dart';
 import 'package:travel_app/features/authorization/sign_in_page.dart';
 import 'package:travel_app/utilities/routes/app_routes.dart';
 
@@ -7,9 +9,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SignInPage(),
-      onGenerateRoute: generateRoute,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        home: SignInPage(),
+        onGenerateRoute: generateRoute,
+      ),
     );
   }
 }

@@ -27,7 +27,7 @@ class AgreeCondition extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: AppColors.buttonColor,
           ),
-        )
+        ),
       ],
     );
   }
