@@ -17,4 +17,13 @@ class AppTexts {
   static const orSignUp = 'or sign up with';
   static const haveAccount = 'Have an account?';
   static const notRegistered = 'This user is not registered';
+  static const travelUz = ' TravelUz';
+  static const korea = ' Korea';
+  static const antalia = 'Antalia';
+  static const gavaya = 'Gavaya';
+  static const mascow = 'Mascow';
+  static const parij = 'Parij';
+  static const pekin = 'Pekin';
+  static const dubay = 'Dubay';
+  static const travel = 'Travel';
 }

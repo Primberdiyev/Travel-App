@@ -50,23 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCWZayHQuwa7jum13vxQDQynCVRgkU6It4',
-    appId: '1:862046507104:android:b07fe3145b18f1baeaf305',
-    messagingSenderId: '862046507104',
-    projectId: 'mychatapplication-568cd',
-    databaseURL: 'https://mychatapplication-568cd-default-rtdb.firebaseio.com',
-    storageBucket: 'mychatapplication-568cd.firebasestorage.app',
+    apiKey: 'AIzaSyAW-XENvewruof82aQXxZWOnoNkE9BkPkU',
+    appId: '1:623204910695:android:5c4cfe1785ffe15b93f6c2',
+    messagingSenderId: '623204910695',
+    projectId: 'foodshop-c3341',
+    databaseURL: 'https://foodshop-c3341-default-rtdb.firebaseio.com',
+    storageBucket: 'foodshop-c3341.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBTYhGDRGRbqmiRP48OF2CPYZoePLqjxYU',
-    appId: '1:862046507104:ios:498d3ad10006cbb9eaf305',
-    messagingSenderId: '862046507104',
-    projectId: 'mychatapplication-568cd',
-    databaseURL: 'https://mychatapplication-568cd-default-rtdb.firebaseio.com',
-    storageBucket: 'mychatapplication-568cd.firebasestorage.app',
-    androidClientId: '862046507104-bcraenjisd81rcjm8khlreab9gadf1aa.apps.googleusercontent.com',
-    iosClientId: '862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCLh4Bkc-qTY8q1YrhIS-Rar5YGr_Kw_WU',
+    appId: '1:623204910695:ios:479e3bdb8cb7cb8393f6c2',
+    messagingSenderId: '623204910695',
+    projectId: 'foodshop-c3341',
+    databaseURL: 'https://foodshop-c3341-default-rtdb.firebaseio.com',
+    storageBucket: 'foodshop-c3341.appspot.com',
     iosBundleId: 'com.example.travelApp',
   );
 
