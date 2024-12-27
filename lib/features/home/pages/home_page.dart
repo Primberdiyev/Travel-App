@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:travel_app/features/home/widgets/beach_image.dart';
 import 'package:travel_app/features/home/widgets/build_city.dart';
 import 'package:travel_app/features/home/widgets/home_page_app_bar.dart';
-import 'package:travel_app/utilities/app_icons.dart';
-import 'package:travel_app/utilities/city_items.dart';
+import 'package:travel_app/features/home/widgets/services.dart';
+import 'package:travel_app/utilities/models_items.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: HomePageAppBar(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
             height: 95,
@@ -31,11 +32,26 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 22,
           ),
+          BeachImage(),
           SizedBox(
-            width: MediaQuery.of(context).size.width - 16,
-            child: SvgPicture.asset(
-              AppIcons.slider.icon,
-              width: 420,
+            height: 13,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              height: 80,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Services(serviceModel: serviceItems[index]);
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    width: 20,
+                  );
+                },
+                itemCount: serviceItems.length,
+              ),
             ),
           ),
         ],

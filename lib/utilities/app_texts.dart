@@ -26,4 +26,12 @@ class AppTexts {
   static const pekin = 'Pekin';
   static const dubay = 'Dubay';
   static const travel = 'Travel';
+  static const beach = 'Beach';
+  static const travelTo =
+      'Travel to beautiful\nlandscapes and the best\ndestinations';
+  static const flights = "Flights";
+  static const hotels = 'Hotels';
+  static const auto = 'Auto';
+  static const foods = 'Foods';
+  static const tour = 'Touruide';
 }

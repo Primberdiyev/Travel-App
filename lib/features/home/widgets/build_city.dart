@@ -20,23 +20,32 @@ class BuildCity extends StatelessWidget {
             left: 10,
             bottom: 11,
           ),
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(3),
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                imagePath,
-              ),
-              fit: BoxFit.cover,
-            ),
+            shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
+                Color(0xFFFAEF20),
                 Color(0xFFFAEF20),
                 Color(0xFFD98160),
                 Color(0xFFC94B80),
                 Color(0xFFB814A0),
+                Color(0xFFBD2198),
               ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
-            shape: BoxShape.circle,
+          ),
+          child: Container(
+            height: 58,
+            width: 58,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(imagePath),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ),
         Text(

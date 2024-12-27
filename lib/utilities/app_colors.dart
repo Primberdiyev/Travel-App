@@ -9,4 +9,15 @@ class AppColors {
   static const buttonColor = Color(0xFF7870DB);
   static const authButtonColor = Color(0xFFF4F4F4);
   static const black = Color(0xFF000000);
+  static const white = Color(0xFFFFFFFF);
+  static const flightTop = Color(0xFF84D3FC);
+  static const flightBottom = Color(0xFF7870DB);
+  static const hotelTop = Color(0xFFC0C0C0);
+  static const hotelBottom = Color(0xFF7870DB);
+  static const autoTop = Color(0xFFCCCCCC);
+  static const autoBottom = Color(0xFF84D3FC);
+  static const foodTop = Color(0xFFFFE4B5);
+  static const foodBottom = Color(0xFF4747FF);
+  static const tourTop = Color(0xFF84D3FC);
+  static const tourBottom = Color(0xFFCCCCCC);
 }
