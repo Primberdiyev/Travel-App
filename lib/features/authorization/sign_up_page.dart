@@ -157,6 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       .signUp(
                     email: emailController.text,
                     password: passwordController.text,
+                    name: nameController.text,
                   )
                       .then(
                     (_) {

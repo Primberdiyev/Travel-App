@@ -14,7 +14,11 @@ enum AppIcons {
   flight("assets/icons/flight.svg"),
   foods("assets/icons/foods.svg"),
   hotels("assets/icons/hotels.svg"),
-  tour("assets/icons/tour.svg");
+  tour("assets/icons/tour.svg"),
+  account("assets/icons/account.svg"),
+  chatting("assets/icons/chatting_message.svg"),
+  home("assets/icons/home.svg"),
+  search("assets/icons/search.svg");
 
   const AppIcons(this.icon);
   final String icon;

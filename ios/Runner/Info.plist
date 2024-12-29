@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Ilovangiz rasm tanlash uchun foto galereyaga kirish ruxsatini so‘raydi.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Ilovangiz kamera yordamida rasm olish ruxsatini so‘raydi.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Ilovangiz tanlangan rasmlarni saqlash uchun foto galereyaga yozish ruxsatini so‘raydi.</string>
+
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

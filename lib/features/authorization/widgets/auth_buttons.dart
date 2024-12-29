@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_app/features/authorization/providers/google_provider.dart';
+import 'package:travel_app/features/authorization/providers/auth_provider.dart';
 import 'package:travel_app/features/authorization/widgets/auth_button.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/app_texts.dart';
@@ -16,8 +16,8 @@ class AuthButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ChangeNotifierProvider(
-          create: (context) => GoogleProvider(),
-          child: Consumer<GoogleProvider>(builder: (
+          create: (context) => AuthProvider(),
+          child: Consumer<AuthProvider>(builder: (
             context,
             provider,
             child,

@@ -13,14 +13,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final FirebaseAuth auth = FirebaseAuth.instance;
   @override
   void initState() {
+    final User? currentUser = FirebaseAuth.instance.currentUser;
+
     Future.delayed(Duration(seconds: 3), () {
-      if (auth.currentUser == null && mounted) {
+      if (currentUser == null && mounted) {
         Navigator.pushReplacementNamed(context, NameRoutes.signIn);
-      } else if (mounted) {
-        Navigator.pushReplacementNamed(context, NameRoutes.home);
+      } else if (mounted && currentUser != null) {
+        Navigator.pushReplacementNamed(context, NameRoutes.signIn);
       }
     });
     super.initState();
