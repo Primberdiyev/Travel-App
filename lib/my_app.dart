@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/features/authorization/providers/auth_provider.dart';
+import 'package:travel_app/features/home/providers/user_provider.dart';
 import 'package:travel_app/features/splash/splash_page.dart';
 import 'package:travel_app/utilities/routes/app_routes.dart';
 
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
         ),
       ],
       child: MaterialApp(

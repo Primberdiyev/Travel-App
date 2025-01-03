@@ -18,7 +18,12 @@ enum AppIcons {
   account("assets/icons/account.svg"),
   chatting("assets/icons/chatting_message.svg"),
   home("assets/icons/home.svg"),
-  search("assets/icons/search.svg");
+  search("assets/icons/search.svg"),
+  menu("assets/icons/menu.svg"),
+  favourite("assets/icons/favourite.svg"),
+  chatMessage("assets/icons/chat_message.svg"),
+  bookMark("assets/icons/bookmark.svg"),
+  sent("assets/icons/sent.svg");
 
   const AppIcons(this.icon);
   final String icon;

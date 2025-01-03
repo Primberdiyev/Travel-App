@@ -2,23 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/features/home/providers/images_provider.dart';
+import 'package:travel_app/features/home/providers/user_provider.dart';
 import 'package:travel_app/features/home/widgets/beach_image.dart';
 import 'package:travel_app/features/home/widgets/build_city.dart';
 import 'package:travel_app/features/home/widgets/home_page_app_bar.dart';
 import 'package:travel_app/features/home/widgets/services.dart';
+import 'package:travel_app/features/home/widgets/story_item.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/models_items.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    final provider = context.read<UserProvider>();
+    provider.getAllUsers();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: HomePageAppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
         children: [
           SizedBox(
             height: 95,
@@ -33,15 +45,15 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(
-            height: 22,
-          ),
+          SizedBox(height: 22),
           BeachImage(),
-          SizedBox(
-            height: 13,
-          ),
+          SizedBox(height: 13),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              bottom: 22,
+            ),
             child: SizedBox(
               height: 80,
               child: ListView.separated(
@@ -50,13 +62,30 @@ class HomePage extends StatelessWidget {
                   return Services(serviceModel: serviceItems[index]);
                 },
                 separatorBuilder: (context, index) {
-                  return SizedBox(
-                    width: 20,
-                  );
+                  return SizedBox(width: 20);
                 },
                 itemCount: serviceItems.length,
               ),
             ),
+          ),
+          Consumer<UserProvider>(
+            builder: (
+              context,
+              provider,
+              child,
+            ) {
+              return ListView.builder(
+                  shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: provider.allUsers.length,
+                itemBuilder: (context, index) {
+                  return StoryItem(
+                    imageLink: provider.allUsers[index].storiesId?[0] ??
+                        'https://www.investopedia.com/thmb/6jYlFRblC_TSZ0lfZjDHVrjMqqI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg',
+                  );
+                },
+              );
+            },
           ),
         ],
       ),
