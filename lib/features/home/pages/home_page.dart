@@ -30,60 +30,62 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HomePageAppBar(),
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 95,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: cities.length,
-              itemBuilder: (context, index) {
-                return BuildCity(
-                  cityName: cities[index].name,
-                  imagePath: cities[index].imagepath,
-                );
-              },
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 95,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: cities.length,
+                itemBuilder: (context, index) {
+                  return BuildCity(
+                    cityName: cities[index].name,
+                    imagePath: cities[index].imagepath,
+                  );
+                },
+              ),
             ),
           ),
-          SizedBox(height: 22),
-          BeachImage(),
-          SizedBox(height: 13),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 20,
-              right: 20,
-              bottom: 22,
-            ),
-            child: SizedBox(
-              height: 80,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Services(serviceModel: serviceItems[index]);
-                },
-                separatorBuilder: (context, index) {
-                  return SizedBox(width: 20);
-                },
-                itemCount: serviceItems.length,
+          SliverToBoxAdapter(
+            child: BeachImage(),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                bottom: 22,
+              ),
+              child: SizedBox(
+                height: 80,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Services(serviceModel: serviceItems[index]);
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width / 18,
+                    );
+                  },
+                  itemCount: serviceItems.length,
+                ),
               ),
             ),
           ),
           Consumer<UserProvider>(
-            builder: (
-              context,
-              provider,
-              child,
-            ) {
-              return ListView.builder(
-                  shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: provider.allUsers.length,
-                itemBuilder: (context, index) {
-                  return StoryItem(
-                    imageLink: provider.allUsers[index].storiesId?[0] ??
-                        'https://www.investopedia.com/thmb/6jYlFRblC_TSZ0lfZjDHVrjMqqI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg',
-                  );
-                },
+            builder: (context, provider, child) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return StoryItem(
+                      imageLink: provider.allUsers[index].storiesId?.first ??
+                          'https://www.investopedia.com/thmb/6jYlFRblC_TSZ0lfZjDHVrjMqqI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg',
+                    );
+                  },
+                  childCount: provider.allUsers.length,
+                ),
               );
             },
           ),

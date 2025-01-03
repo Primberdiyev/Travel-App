@@ -11,7 +11,12 @@ class BeachImage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8),
+      margin: EdgeInsets.only(
+        left: 8,
+        right: 8,
+        top: 22,
+        bottom: 13,
+      ),
       padding: EdgeInsets.only(
         left: 25,
         top: 25,
