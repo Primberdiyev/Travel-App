@@ -8,8 +8,9 @@ import 'package:travel_app/utilities/routes/name_routes.dart';
 import 'package:travel_app/utilities/statuses.dart';
 
 class AuthButtons extends StatelessWidget {
-  const AuthButtons({super.key, required this.isSignIn});
-  final bool isSignIn;
+  const AuthButtons({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,7 +26,7 @@ class AuthButtons extends StatelessWidget {
             return AuthButton(
               iconPath: AppIcons.google.icon,
               onPressed: () {
-                provider.signInWithGooge(isSignIn).then((_) {
+                provider.signInWithGooge().then((_) {
                   if (provider.state == Statuses.completed && context.mounted) {
                     Navigator.pushReplacementNamed(context, NameRoutes.home);
                   } else {

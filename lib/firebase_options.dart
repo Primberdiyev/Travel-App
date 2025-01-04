@@ -65,6 +65,8 @@ class DefaultFirebaseOptions {
     projectId: 'foodshop-c3341',
     databaseURL: 'https://foodshop-c3341-default-rtdb.firebaseio.com',
     storageBucket: 'foodshop-c3341.appspot.com',
+    androidClientId: '623204910695-56j66qhd4u2888qfe14tkt9e2eumv2k2.apps.googleusercontent.com',
+    iosClientId: '623204910695-9utjscocnts2f0cqup3f2vs5jt7mah7h.apps.googleusercontent.com',
     iosBundleId: 'com.example.travelApp',
   );
 

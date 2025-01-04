@@ -7,4 +7,8 @@ class AppImages {
   static const String pekin = "assets/images/pekin.jpg";
   static const String parij = "assets/images/parij.jpg";
   static const String nature = "assets/images/nature.jpg";
+  static const String favourite = "assets/images/favourite.png";
+  static const String chatMessage = "assets/images/chat_message.png";
+  static const String bookMark = "assets/images/bookmark.png";
+  static const String sent = "assets/images/sent.png";
 }

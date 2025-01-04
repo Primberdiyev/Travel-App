@@ -8,31 +8,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:623204910695:android:a1d13593bf66e4ad93f6c2",
-        "android_client_info": {
-          "package_name": "com.example"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAW-XENvewruof82aQXxZWOnoNkE9BkPkU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:623204910695:android:6fb5ba505405aa1493f6c2",
         "android_client_info": {
           "package_name": "com.example.chatapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "623204910695-56j66qhd4u2888qfe14tkt9e2eumv2k2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatapp",
+            "certificate_hash": "83325a2c72d94708dfcc55240fece775a2daf987"
+          }
+        },
+        {
+          "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAW-XENvewruof82aQXxZWOnoNkE9BkPkU"
@@ -40,7 +34,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "623204910695-9utjscocnts2f0cqup3f2vs5jt7mah7h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
         }
       }
     },
@@ -51,7 +57,12 @@
           "package_name": "com.example.travel_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAW-XENvewruof82aQXxZWOnoNkE9BkPkU"
@@ -59,7 +70,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "623204910695-9utjscocnts2f0cqup3f2vs5jt7mah7h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623204910695:android:dc783beeb2ef3c3893f6c2",
+        "android_client_info": {
+          "package_name": "com.unknown"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW-XENvewruof82aQXxZWOnoNkE9BkPkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623204910695-lp27h6dg5c4tm0g95mm6hl3d2a713ob4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "623204910695-9utjscocnts2f0cqup3f2vs5jt7mah7h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp"
+              }
+            }
+          ]
         }
       }
     }

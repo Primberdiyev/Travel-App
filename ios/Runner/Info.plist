@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Ilovangiz rasm tanlash uchun foto galereyaga kirish ruxsatini so‘raydi.</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Ilovangiz kamera yordamida rasm olish ruxsatini so‘raydi.</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Ilovangiz tanlangan rasmlarni saqlash uchun foto galereyaga yozish ruxsatini so‘raydi.</string>
-
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -36,14 +29,22 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n</string>
+				<string>com.googleusercontent.apps.623204910695-9utjscocnts2f0cqup3f2vs5jt7mah7h</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>GIDClientID</key>
+	<string>862046507104-s25bdfrvedqkbfenonu9lel5nbg0mj2n.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Ilovangiz kamera yordamida rasm olish ruxsatini so‘raydi.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Ilovangiz tanlangan rasmlarni saqlash uchun foto galereyaga yozish ruxsatini so‘raydi.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ilovangiz rasm tanlash uchun foto galereyaga kirish ruxsatini so‘raydi.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

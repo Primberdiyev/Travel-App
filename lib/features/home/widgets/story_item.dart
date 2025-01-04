@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:travel_app/features/models/user_model.dart';
+import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/app_colors.dart';
-import 'package:travel_app/utilities/app_icons.dart';
+import 'package:travel_app/utilities/app_images.dart';
 import 'package:travel_app/utilities/app_texts.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
 
@@ -15,7 +14,8 @@ class StoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageLink = userModel.storiesId?.first ?? AppTexts.defaultImage;
+    final String imageLink =
+        userModel.storiesId?.first ?? AppTexts.defaultImage;
     return Column(
       children: [
         Row(
@@ -87,15 +87,50 @@ class StoryItem extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          children: [
-            SvgPicture.asset(
-              AppIcons.favourite.icon,
-            ),
-            SvgPicture.asset(AppIcons.chatMessage.icon),
-            SvgPicture.asset(AppIcons.bookMark.icon),
-            SvgPicture.asset(AppIcons.sent.icon),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 19,
+            right: 25,
+          ),
+          child: Row(
+            children: [
+              Image.asset(
+                AppImages.favourite,
+                width: 30,
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 35,
+                  right: 37,
+                  top: 11,
+                  bottom: 17,
+                ),
+                child: Image.asset(
+                  AppImages.chatMessage,
+                  width: 30,
+                  height: 30,
+                ),
+              ),
+              Image.asset(
+                AppImages.bookMark,
+                width: 30,
+                height: 30,
+              ),
+              Spacer(),
+              Image.asset(
+                AppImages.sent,
+                width: 30,
+                height: 30,
+              ),
+              // SvgPicture.asset(
+              //   AppIcons.favourite.icon,
+              // ),
+              // SvgPicture.asset(AppIcons.chatMessage.icon),
+              // SvgPicture.asset(AppIcons.bookMark.icon),
+              // SvgPicture.asset(AppIcons.sent.icon),
+            ],
+          ),
         ),
       ],
     );

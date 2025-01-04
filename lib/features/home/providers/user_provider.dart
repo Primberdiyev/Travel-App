@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travel_app/core/base/base_change_notifier.dart';
-import 'package:travel_app/features/models/user_model.dart';
+import 'package:travel_app/features/home/models/user_model.dart';
 
 class UserProvider extends BaseChangeNotifier {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;

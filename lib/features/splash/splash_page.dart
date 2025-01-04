@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
       if (currentUser == null && mounted) {
         Navigator.pushReplacementNamed(context, NameRoutes.signIn);
       } else if (mounted && currentUser != null) {
-        Navigator.pushReplacementNamed(context, NameRoutes.signIn);
+        Navigator.pushReplacementNamed(context, NameRoutes.home);
       }
     });
     super.initState();

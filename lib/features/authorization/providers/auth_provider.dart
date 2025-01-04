@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:travel_app/core/base/base_change_notifier.dart';
-import 'package:travel_app/features/models/user_model.dart';
+import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/statuses.dart';
 
 class AuthProvider extends BaseChangeNotifier {
@@ -47,13 +47,16 @@ class AuthProvider extends BaseChangeNotifier {
     }
   }
 
-  Future<bool?> signInWithGooge(bool isSignIn) async {
+  Future signInWithGooge() async {
     updateState(Statuses.loading);
     try {
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
-      if (googleUser == null) return null;
+      if (googleUser == null) {
+        updateState(Statuses.error);
+        return false;
+      }
 
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
@@ -63,29 +66,22 @@ class AuthProvider extends BaseChangeNotifier {
         idToken: googleAuth.idToken,
       );
 
-      final List<String> signInMethods =
-          await auth.fetchSignInMethodsForEmail(googleUser.email);
+      await auth.signOut();
 
-      if (isSignIn) {
-        if (signInMethods.isNotEmpty) {
-          final UserCredential userCredential =
-              await auth.signInWithCredential(credential);
-          updateState(Statuses.completed);
-          return userCredential.user != null;
-        } else {
-          updateState(Statuses.error);
-          return false;
-        }
+      final UserCredential userCredential =
+          await auth.signInWithCredential(credential);
+
+      if (userCredential.user != null) {
+        await registerFireStore(
+          name: googleUser.displayName ?? '',
+          id: userCredential.user?.uid ?? "",
+          email: googleUser.email,
+        );
+        updateState(Statuses.completed);
+        return true;
       } else {
-        if (signInMethods.isEmpty) {
-          final UserCredential userCredential =
-              await auth.signInWithCredential(credential);
-          updateState(Statuses.completed);
-          return userCredential.user != null;
-        } else {
-          updateState(Statuses.error);
-          return false;
-        }
+        updateState(Statuses.error);
+        return false;
       }
     } catch (e) {
       updateState(Statuses.error);

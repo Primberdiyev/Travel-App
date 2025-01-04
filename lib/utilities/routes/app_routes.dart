@@ -3,7 +3,7 @@ import 'package:travel_app/features/authorization/sign_in_page.dart';
 import 'package:travel_app/features/authorization/sign_up_page.dart';
 import 'package:travel_app/features/chat/chat_page.dart';
 import 'package:travel_app/features/home/pages/home_page.dart';
-import 'package:travel_app/features/models/user_model.dart';
+import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
 
 Route generateRoute(RouteSettings settings) {

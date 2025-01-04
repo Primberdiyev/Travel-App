@@ -182,9 +182,7 @@ class _SignUpPageState extends State<SignUpPage> {
               textAlign: TextAlign.center,
             ),
           ),
-          AuthButtons(
-            isSignIn: false,
-          ),
+          AuthButtons(),
           SizedBox(
             height: 26,
           ),
