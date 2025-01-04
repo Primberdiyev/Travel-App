@@ -10,7 +10,8 @@ class UserModel {
       name: json['name'] as String,
       id: json['id'] as String,
       email: json['email'] as String,
-      storiesId: List<String>.from(json['storiesId']),
+      storiesId:
+          json['storiesId'] != null ? List<String>.from(json['storiesId']) : [],
     );
   }
 

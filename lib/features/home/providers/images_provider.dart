@@ -41,7 +41,7 @@ class ImagesProvider extends BaseChangeNotifier {
 
   Future saveImageId() async {
     try {
-      await firebaseFirestore.collection('users').doc(currentUser?.uid).set(
+      await firebaseFirestore.collection('User').doc(currentUser?.uid).set(
         {
           'storiesId': FieldValue.arrayUnion(
             [imageUrl],

@@ -105,7 +105,7 @@ class AuthProvider extends BaseChangeNotifier {
       email: email,
     );
     await firebaseFirestore
-        .collection('users')
+        .collection('User')
         .doc(auth.currentUser?.uid)
         .set(userModel.toJson(), SetOptions(merge: true));
   }

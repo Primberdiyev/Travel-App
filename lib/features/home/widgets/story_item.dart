@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:travel_app/features/models/user_model.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_icons.dart';
+import 'package:travel_app/utilities/app_texts.dart';
+import 'package:travel_app/utilities/routes/name_routes.dart';
 
 class StoryItem extends StatelessWidget {
   const StoryItem({
     super.key,
-    required this.imageLink,
+    required this.userModel,
   });
-  final String imageLink;
+  final UserModel userModel;
 
   @override
   Widget build(BuildContext context) {
+    final imageLink = userModel.storiesId?.first ?? AppTexts.defaultImage;
     return Column(
       children: [
         Row(
@@ -30,12 +34,21 @@ class StoryItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Dilshodbek',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: AppColors.black,
-                    fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      NameRoutes.chat,
+                      arguments: userModel,
+                    );
+                  },
+                  child: Text(
+                    userModel.name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Text(
@@ -67,7 +80,9 @@ class StoryItem extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
-              image: NetworkImage(imageLink),
+              image: NetworkImage(
+                imageLink,
+              ),
               fit: BoxFit.cover,
             ),
           ),

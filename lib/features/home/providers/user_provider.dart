@@ -8,12 +8,16 @@ class UserProvider extends BaseChangeNotifier {
   List<UserModel> allUsers = [];
   Future getAllUsers() async {
     try {
-      final response = await firebaseFirestore.collection('users').get();
+      final response = await firebaseFirestore.collection('User').get();
       for (var element in response.docs) {
-        allUsers.add(UserModel.fromJson(element.data()));
+        final user = UserModel.fromJson(element.data());
+
+        if (user.storiesId?.isNotEmpty ?? false) {
+          allUsers.add(user);
+        }
       }
     } catch (e) {
-      log('error on getting user\'s model');
+      log('error on getting user\'s model $e');
     }
 
     notifyListeners();

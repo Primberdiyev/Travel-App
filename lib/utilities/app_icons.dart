@@ -23,7 +23,8 @@ enum AppIcons {
   favourite("assets/icons/favourite.svg"),
   chatMessage("assets/icons/chat_message.svg"),
   bookMark("assets/icons/bookmark.svg"),
-  sent("assets/icons/sent.svg");
+  sent("assets/icons/sent.svg"),
+  backIos("assets/icons/back_ios.svg");
 
   const AppIcons(this.icon);
   final String icon;
