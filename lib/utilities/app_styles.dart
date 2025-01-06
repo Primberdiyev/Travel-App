@@ -7,4 +7,9 @@ class AppStyles {
         fontWeight: FontWeight.w400,
         color: AppColors.black,
       );
+  static TextStyle get body14w600 => TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.black,
+      );
 }

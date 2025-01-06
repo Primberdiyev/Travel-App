@@ -34,6 +34,8 @@ class AppTexts {
   static const auto = 'Auto';
   static const foods = 'Foods';
   static const tour = 'Touruide';
+  static const String online = 'online';
+  static const String phoneNumber = '+9989 91 326 29 25';
   static const defaultImage =
       'https://www.investopedia.com/thmb/6jYlFRblC_TSZ0lfZjDHVrjMqqI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg';
 }

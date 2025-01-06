@@ -10,6 +10,7 @@ import 'package:travel_app/features/home/widgets/services.dart';
 import 'package:travel_app/features/home/widgets/story_item.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/models_items.dart';
+import 'package:travel_app/utilities/routes/name_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -116,9 +117,15 @@ class _HomePageState extends State<HomePage> {
                 child,
               ) {
                 return GestureDetector(
-                  onTap: () async {
-                    await provider.pickImage();
-                    await provider.uploadImageToStorage();
+                  onTap: () {
+                    // await provider.pickImage();
+                    // await provider.uploadImageToStorage();
+                    final userProvider = context.read<UserProvider>();
+                    Navigator.pushReplacementNamed(
+                      context,
+                      NameRoutes.profile,
+                      arguments: userProvider.mySelf,
+                    );
                   },
                   child: SvgPicture.asset(
                     AppIcons.account.icon,

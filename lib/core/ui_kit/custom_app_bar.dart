@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/core/ui_kit/custom_user_avatar.dart';
 import 'package:travel_app/features/home/models/user_model.dart';
+import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/app_styles.dart';
 import 'package:travel_app/utilities/app_texts.dart';
@@ -40,11 +41,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 userModel.name,
                 style: AppStyles.body18w400,
               ),
-              Text(
-                "online",
-                style: AppStyles.body18w400.copyWith(
-                  fontSize: 14,
-                ),
+              Row(
+                children: [
+                  Container(
+                    width: 6,
+                    height: 6,
+                    margin: EdgeInsets.only(right: 8),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.onlineColor,
+                    ),
+                  ),
+                  Text(
+                    AppTexts.online,
+                    style: AppStyles.body18w400.copyWith(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

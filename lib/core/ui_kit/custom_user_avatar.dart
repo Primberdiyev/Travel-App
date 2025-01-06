@@ -6,10 +6,12 @@ class CustomUserAvatar extends StatelessWidget {
     this.imageLink,
     required this.size,
     this.imagePath,
+    this.isWithBorder = false,
   });
   final String? imageLink;
   final double size;
   final String? imagePath;
+  final bool isWithBorder;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +35,7 @@ class CustomUserAvatar extends StatelessWidget {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.all(3),
+        padding: EdgeInsets.all(isWithBorder ? 0 : 3),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
