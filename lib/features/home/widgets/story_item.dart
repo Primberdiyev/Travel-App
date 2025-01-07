@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_images.dart';
-import 'package:travel_app/utilities/app_texts.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
 
 class StoryItem extends StatelessWidget {
@@ -15,7 +14,7 @@ class StoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String imageLink =
-        userModel.storiesId?.first ?? AppTexts.defaultImage;
+        userModel.storiesId.first;
     return Column(
       children: [
         Row(

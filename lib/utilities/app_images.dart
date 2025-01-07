@@ -11,4 +11,5 @@ class AppImages {
   static const String chatMessage = "assets/images/chat_message.png";
   static const String bookMark = "assets/images/bookmark.png";
   static const String sent = "assets/images/sent.png";
+  static const String more = "assets/images/more.png";
 }

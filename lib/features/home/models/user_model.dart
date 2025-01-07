@@ -3,45 +3,48 @@ class UserModel {
     required this.name,
     required this.id,
     required this.email,
-    this.storiesId,
-    this.fans = 0,
-    this.following = 0,
-    this.postCount = 0,
-    this.storyCount = 0,
-  });
+    List<String>? storiesId,
+    List<String>? fansId,
+    List<String>? followingsId,
+    List<String>? postsId,
+  })  : storiesId = storiesId ?? [],
+        fansId = fansId ?? [],
+        followingsId = followingsId ?? [],
+        postsId = postsId ?? [];
+
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       name: json['name'] as String,
       id: json['id'] as String,
       email: json['email'] as String,
-      fans: json['fans'],
-      following: json['following'],
-      postCount: json['postCount'],
-      storyCount: json['storyCount'],
       storiesId:
           json['storiesId'] != null ? List<String>.from(json['storiesId']) : [],
+      fansId: json['fansId'] != null ? List<String>.from(json['fansId']) : [],
+      followingsId: json['followingsId'] != null
+          ? List<String>.from(json['followingsId'])
+          : [],
+      postsId:
+          json['postsId'] != null ? List<String>.from(json['postsId']) : [],
     );
   }
 
   String email;
   String name;
   String id;
-  List<String>? storiesId;
-  num fans;
-  num following;
-  num postCount;
-  num storyCount;
+  List<String> storiesId;
+  List<String> fansId;
+  List<String> followingsId;
+  List<String> postsId;
 
   Map<String, dynamic> toJson() {
     return {
       'name': name,
       'id': id,
       'email': email,
-      if (storiesId != null) 'storiesId': storiesId,
-      'postCount': postCount,
-      'storyCount': storiesId?.length ?? 0,
-      'fans': fans,
-      'following': following,
+      'storiesId': storiesId,
+      'postsId': postsId,
+      'fansId': fansId,
+      'followingsId': followingsId,
     };
   }
 }

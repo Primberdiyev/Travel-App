@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 7,
           ),
           CustomUserAvatar(
-            imageLink: userModel.storiesId?.first ?? AppTexts.defaultImage,
+            imageLink: userModel.storiesId.first,
             size: 45,
           ),
           SizedBox(

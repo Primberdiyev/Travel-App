@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    userModel?.name??'user',
+                    userModel?.name ?? 'user',
                     style: AppStyles.body14w600,
                   ),
                   Text(
@@ -51,6 +51,12 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              Spacer(),
+              Image.asset(
+                AppImages.more,
+                height: 30,
+                width: 30,
               ),
             ],
           ),
