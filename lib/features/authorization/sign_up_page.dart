@@ -146,6 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child,
           ) {
             return CustomButton(
+              buttonWeight: MediaQuery.of(context).size.width - 102,
               isLoading: provider.state.isLoading,
               leftColor: AppColors.primary,
               rightColor: AppColors.buttonColor,

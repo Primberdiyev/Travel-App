@@ -36,6 +36,17 @@ class AppTexts {
   static const tour = 'Touruide';
   static const String online = 'online';
   static const String phoneNumber = '+9989 91 326 29 25';
+  static const String fans = 'Fans';
+  static const String followings = 'Followings';
+  static const String posts = 'Posts';
+  static const String editProfile = 'Edit profile';
+  static const String stories = "Stories";
+  static const String photo = 'Photo';
+  static const String video = 'Video';
+  static const String about = 'About';
+  static const String favourite = 'Favourite';
+  static const String user = 'User';
+  static const String shareProfile = 'Share profile';
   static const defaultImage =
       'https://www.investopedia.com/thmb/6jYlFRblC_TSZ0lfZjDHVrjMqqI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg';
 }

@@ -79,6 +79,7 @@ class _AuthorizationPageState extends State<SignInPage> {
             child,
           ) {
             return CustomButton(
+              buttonWeight: MediaQuery.of(context).size.width - 102,
               isLoading: provider.state == Statuses.loading,
               leftColor: AppColors.primary,
               rightColor: AppColors.buttonColor,

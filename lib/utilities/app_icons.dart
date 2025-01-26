@@ -25,7 +25,8 @@ enum AppIcons {
   bookMark("assets/icons/bookmark.svg"),
   sent("assets/icons/sent.svg"),
   backIos("assets/icons/back_ios.svg"),
-  more("assets/icons/More.svg");
+  more("assets/icons/More.svg"),
+  home1("assets/icons/home1.svg");
 
   const AppIcons(this.icon);
   final String icon;

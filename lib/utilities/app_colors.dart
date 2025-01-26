@@ -21,4 +21,5 @@ class AppColors {
   static const tourTop = Color(0xFF84D3FC);
   static const tourBottom = Color(0xFFCCCCCC);
   static const onlineColor = Color(0xFF19CF62);
+   
 }

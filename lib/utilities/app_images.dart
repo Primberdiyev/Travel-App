@@ -12,4 +12,8 @@ class AppImages {
   static const String bookMark = "assets/images/bookmark.png";
   static const String sent = "assets/images/sent.png";
   static const String more = "assets/images/more.png";
+  static const String home = "assets/images/home.png";
+  static const String search = "assets/images/search.png";
+  static const String plus = "assets/images/plus.png";
+  static const String customer = "assets/images/customer.png";
 }

@@ -12,4 +12,14 @@ class AppStyles {
         fontWeight: FontWeight.w600,
         color: AppColors.black,
       );
+  static TextStyle get body15w600 => TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+        color: AppColors.black,
+      );
+  static TextStyle get body10w300 => TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.w300,
+        color: AppColors.topTextColor,
+      );
 }

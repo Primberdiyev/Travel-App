@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -8,17 +9,20 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.onPressed,
     this.isLoading = false,
+    required this.buttonWeight,
   });
   final Color leftColor;
   final Color rightColor;
   final String text;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final double buttonWeight;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 42,
+      width: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         gradient: LinearGradient(
