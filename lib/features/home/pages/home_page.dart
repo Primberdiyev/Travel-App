@@ -6,6 +6,7 @@ import 'package:travel_app/features/home/widgets/beach_image.dart';
 import 'package:travel_app/features/home/widgets/build_city.dart';
 import 'package:travel_app/features/home/widgets/home_page_app_bar.dart';
 import 'package:travel_app/features/home/widgets/services.dart';
+import 'package:travel_app/features/home/widgets/story_item.dart';
 import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/models_items.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
@@ -73,24 +74,24 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          // Consumer<UserProvider>(
-          //   builder: (
-          //     context,
-          //     provider,
-          //     child,
-          //   ) {
-          //     return SliverList(
-          //       delegate: SliverChildBuilderDelegate(
-          //         (context, index) {
-          //           return StoryItem(
-          //             userModel: provider.allUsers[index],
-          //           );
-          //         },
-          //         childCount: provider.allUsers.length,
-          //       ),
-          //     );
-          //   },
-          // ),
+          Consumer<UserProvider>(
+            builder: (
+              context,
+              provider,
+              child,
+            ) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return StoryItem(
+                      userModel: provider.allUsers[index],
+                    );
+                  },
+                  childCount: provider.allUsers.length,
+                ),
+              );
+            },
+          ),
         ],
       ),
       bottomNavigationBar: Padding(

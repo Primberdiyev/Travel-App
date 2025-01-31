@@ -16,7 +16,7 @@ class UserProvider extends BaseChangeNotifier {
       allUsers = response.docs
           .map((doc) => UserModel.fromJson(doc.data()))
           .where(
-            (user) => user.id != currentUser?.uid && user.storiesId.isNotEmpty,
+            (user) => user.storiesId.isNotEmpty,
           )
           .toList();
     } catch (e, stackTrace) {
