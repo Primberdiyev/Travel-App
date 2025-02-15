@@ -10,6 +10,7 @@ class AppTexts {
   static const signUp = 'Sign up';
   static const yourMessage = 'Your message';
   static const name = 'Name';
+  static const chats = 'chats';
   static const smith = 'ex: jon smith';
   static const exampleEmail = 'ex: jon.smith@email.com';
   static const confirmPassword = 'Confirm Password';
