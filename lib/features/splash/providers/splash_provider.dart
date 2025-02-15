@@ -22,6 +22,8 @@ class SplashProvider extends BaseChangeNotifier {
         } else {
           updateState(Statuses.completed);
         }
+      } else {
+        updateState(Statuses.completed);
       }
     } catch (e) {
       log('error on check register $e');

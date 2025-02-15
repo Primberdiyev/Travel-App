@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/app_colors.dart';
 import 'package:travel_app/utilities/app_images.dart';
 import 'package:travel_app/utilities/routes/name_routes.dart';
 
-class StoryItem extends StatelessWidget {
+class StoryItem extends StatefulWidget {
   const StoryItem({
     super.key,
     required this.userModel,
@@ -12,9 +13,14 @@ class StoryItem extends StatelessWidget {
   final UserModel userModel;
 
   @override
+  State<StoryItem> createState() => _StoryItemState();
+}
+
+class _StoryItemState extends State<StoryItem> {
+  @override
   Widget build(BuildContext context) {
-    final String imageLink =
-        userModel.storiesId.first;
+    final List<String> images = widget.userModel.storiesId;
+    final PageController controller = PageController();
     return Column(
       children: [
         Row(
@@ -22,8 +28,8 @@ class StoryItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 16, right: 14),
               child: ClipOval(
-                child: Image.network(
-                  imageLink,
+                child: CachedNetworkImage(
+                  imageUrl: images.first,
                   height: 45,
                   width: 45,
                   fit: BoxFit.cover,
@@ -38,11 +44,11 @@ class StoryItem extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       NameRoutes.chat,
-                      arguments: userModel,
+                      arguments: widget.userModel,
                     );
                   },
                   child: Text(
-                    userModel.name,
+                    widget.userModel.name,
                     style: TextStyle(
                       fontSize: 18,
                       color: AppColors.black,
@@ -69,21 +75,29 @@ class StoryItem extends StatelessWidget {
             ),
           ],
         ),
-        Container(
+        SizedBox(
           height: 433,
-          margin: EdgeInsets.only(
-            top: 6,
-            right: 9,
-            left: 9,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(
-                imageLink,
-              ),
-              fit: BoxFit.cover,
-            ),
+          child: PageView.builder(
+            controller: controller,
+            itemCount: images.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                  top: 6,
+                  right: 15,
+                  left: 15,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: CachedNetworkImageProvider(
+                      widget.userModel.storiesId[index],
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            },
           ),
         ),
         Padding(
@@ -122,12 +136,6 @@ class StoryItem extends StatelessWidget {
                 width: 30,
                 height: 30,
               ),
-              // SvgPicture.asset(
-              //   AppIcons.favourite.icon,
-              // ),
-              // SvgPicture.asset(AppIcons.chatMessage.icon),
-              // SvgPicture.asset(AppIcons.bookMark.icon),
-              // SvgPicture.asset(AppIcons.sent.icon),
             ],
           ),
         ),

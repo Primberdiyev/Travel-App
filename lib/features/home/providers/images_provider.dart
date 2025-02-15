@@ -29,23 +29,6 @@ class ImagesProvider extends BaseChangeNotifier {
     notifyListeners();
   }
 
-  // Future uploadImageToStorage() async {
-  //   updateState(Statuses.loading);
-  //   try {
-  //     final String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-  //     final storageRef =
-  //         FirebaseStorage.instance.ref().child('usersImages/$fileName');
-  //     await storageRef.putFile(selectedImage ?? File(''));
-  //     String imageUrl = await storageRef.getDownloadURL();
-  //     await saveImageId(imageUrl);
-  //     await getAllImages();
-  //     updateState(Statuses.completed);
-  //   } catch (e) {
-  //     log('error on uploading image to Storage $e');
-  //     updateState(Statuses.error);
-  //   }
-  // }
-
   Future uploadImageToImageKit() async {
     updateState(Statuses.loading);
     try {

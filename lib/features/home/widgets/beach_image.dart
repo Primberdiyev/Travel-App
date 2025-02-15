@@ -12,8 +12,8 @@ class BeachImage extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.only(
-        left: 8,
-        right: 8,
+        left: 15,
+        right: 15,
         top: 22,
         bottom: 13,
       ),

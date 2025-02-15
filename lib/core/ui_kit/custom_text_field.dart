@@ -7,14 +7,27 @@ class CustomTextField extends StatelessWidget {
     required this.topText,
     required this.hintText,
     required this.controller,
+    this.textfieldColor,
+    this.width,
+    this.maxLines,
+    this.contentPadding,
+    this.height,
+    this.sufficIcon,
   });
   final String topText;
   final String hintText;
   final TextEditingController controller;
+  final Color? textfieldColor;
+  final double? width;
+  final int? maxLines;
+  final double? height;
+  final EdgeInsets? contentPadding;
+  final Widget? sufficIcon;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
           topText,
@@ -28,18 +41,21 @@ class CustomTextField extends StatelessWidget {
           height: 13,
         ),
         SizedBox(
-          height: 42,
-          width: MediaQuery.of(context).size.width - 102,
+          height: height ?? 42,
+          width: width ?? MediaQuery.of(context).size.width - 102,
           child: TextField(
             controller: controller,
+            maxLines: maxLines,
+            textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
               filled: true,
-              fillColor: AppColors.textFieldColor,
+              fillColor: textfieldColor ?? AppColors.textFieldColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: EdgeInsets.only(left: 15),
+              contentPadding: contentPadding ?? EdgeInsets.only(left: 15),
+              suffixIcon: sufficIcon,
               hintText: hintText,
               hintStyle: TextStyle(
                 color: AppColors.hintTextColor,

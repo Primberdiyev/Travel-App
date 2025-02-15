@@ -8,6 +8,7 @@ class AppTexts {
   static const orSignInWith = 'or sign in with';
   static const dontHaveAccount = 'Don’t have an account? ';
   static const signUp = 'Sign up';
+  static const yourMessage = 'Your message';
   static const name = 'Name';
   static const smith = 'ex: jon smith';
   static const exampleEmail = 'ex: jon.smith@email.com';

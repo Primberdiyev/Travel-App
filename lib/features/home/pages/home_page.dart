@@ -53,8 +53,8 @@ class _HomePageState extends State<HomePage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(
-                left: 20,
-                right: 20,
+                left: 15,
+                right: 15,
                 bottom: 22,
               ),
               child: SizedBox(
@@ -97,6 +97,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
           bottom: 22,
+          top: 10,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
