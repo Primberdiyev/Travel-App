@@ -22,4 +22,6 @@ class AppColors {
   static const tourBottom = Color(0xFFCCCCCC);
   static const onlineColor = Color(0xFF19CF62);
   static const chatPageScaffold = Color(0xFFF2F5FA);
+  static const myMessageColor = Color(0xFFB6D4D8);
+  static const otherMessageColor = Color(0xff5B4E46);
 }

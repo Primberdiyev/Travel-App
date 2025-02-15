@@ -1,4 +1,7 @@
 class AppTexts {
+  static const String somethingWentWrong = 'Something went wrong';
+  static const String pm = 'PM';
+  static const String am = 'AM';
   static const String signInAccount = 'Sign in your account';
   static const String email = 'Email';
   static const hintText = 'ex: jon.smith@email.com';

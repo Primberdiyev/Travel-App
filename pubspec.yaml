@@ -98,6 +98,9 @@ flutter:
     - family: Caveat
       fonts:
        - asset: assets/fonts/CaveatBrush-Regular.ttf
+    - family: AbeeZee
+      fonts:
+       - asset: assets/fonts/ABeeZee-Regular.ttf 
          
         
     # - family: Trajan Pro

@@ -10,23 +10,23 @@ import 'package:travel_app/utilities/app_texts.dart';
 class ChatProvider extends BaseChangeNotifier {
   final auth = FirebaseAuth.instance;
   final firestore = FirebaseFirestore.instance;
-
+  final chatService = ChatServices();
   Future<void> sendMessage({
     required String receiverUserid,
     required String message,
   }) async {
-    final now = DateTime.now();
-    final firestoreDetail = firestore.collection(AppTexts.chats);
-    final conversationId = ChatServices().getConversatioId(receiverUserid);
-    final firebaseUniqueId = firestoreDetail.doc().id;
-    final messageModel = MessageModel(
-      id: firebaseUniqueId,
-      senderId: auth.currentUser?.uid ?? "",
-      receiverId: receiverUserid,
-      message: message,
-      timestamp: now,
-    );
     try {
+      final now = DateTime.now();
+      final firestoreDetail = firestore.collection(AppTexts.chats);
+      final conversationId = chatService.getConversatioId(receiverUserid);
+      final firebaseUniqueId = firestoreDetail.doc().id;
+      final messageModel = MessageModel(
+        id: firebaseUniqueId,
+        senderId: auth.currentUser?.uid ?? "",
+        receiverId: receiverUserid,
+        message: message,
+        timestamp: now,
+      );
       await firestoreDetail
           .doc("$conversationId/messages/${messageModel.id}")
           .set(
@@ -36,5 +36,16 @@ class ChatProvider extends BaseChangeNotifier {
     } catch (e) {
       log('error during sending message $e');
     }
+  }
+
+  Stream<List<MessageModel>> getAllMessages({required String receiverId}) {
+    final conversationId = chatService.getConversatioId(receiverId);
+    return firestore
+        .collection("${AppTexts.chats}/$conversationId/messages")
+        .orderBy('timestamp', descending: true)
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map((doc) => MessageModel.fromJson(doc.data()))
+            .toList());
   }
 }

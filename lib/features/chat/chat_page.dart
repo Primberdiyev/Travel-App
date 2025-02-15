@@ -1,14 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/core/ui_kit/custom_app_bar.dart';
-import 'package:travel_app/core/ui_kit/custom_text_field.dart';
+import 'package:travel_app/features/chat/models/message_model.dart';
 import 'package:travel_app/features/chat/providers/chat_provider.dart';
+import 'package:travel_app/features/chat/widgets/build_message.dart';
+import 'package:travel_app/features/chat/widgets/chat_page_bottom_navigation.dart';
 import 'package:travel_app/features/home/models/user_model.dart';
 import 'package:travel_app/utilities/app_colors.dart';
-import 'package:travel_app/utilities/app_icons.dart';
 import 'package:travel_app/utilities/app_texts.dart';
+import 'package:travel_app/utilities/message_types.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({
@@ -23,66 +23,66 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final TextEditingController controller = TextEditingController();
-  final currentUser = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.chatPageScaffold,
-      appBar: CustomAppBar(
-        userModel: widget.userModel,
-      ),
-      body: Center(
-        child: Text(''),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          left: 32,
-          right: 33,
-          bottom: 39,
+    final receiverId = widget.userModel.id;
+    return Consumer<ChatProvider>(builder: (
+      context,
+      provider,
+      child,
+    ) {
+      return Scaffold(
+        backgroundColor: AppColors.chatPageScaffold,
+        appBar: CustomAppBar(
+          userModel: widget.userModel,
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        body: Column(
           children: [
-            Consumer<ChatProvider>(builder: (
-              context,
-              provider,
-              child,
-            ) {
-              return CustomTextField(
-                topText: '',
-                hintText: AppTexts.yourMessage,
-                controller: controller,
-                textfieldColor: AppColors.white,
-                width: MediaQuery.of(context).size.width - 130,
-                height: 48,
-                sufficIcon: GestureDetector(
-                  onTap: () {
-                    if (controller.text.isEmpty) {
-                      return;
-                    }
-                    provider
-                        .sendMessage(
-                      message: controller.text,
-                      receiverUserid: widget.userModel.id,
-                    )
-                        .then((_) {
-                      controller.clear();
-                    });
-                  },
-                  child: SvgPicture.asset(
-                    AppIcons.stickers.icon,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              );
-            }),
-            Spacer(),
-            GestureDetector(
-              child: SvgPicture.asset(AppIcons.voice.icon),
+            Expanded(
+              child: StreamBuilder(
+                stream: provider.getAllMessages(receiverId: receiverId),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text(AppTexts.somethingWentWrong);
+                  } else if (!snapshot.hasData) {
+                    return SizedBox();
+                  }
+                  final List<MessageModel> messages = snapshot.data ?? [];
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          reverse: true,
+                          itemCount: messages.length,
+                          itemBuilder: (context, index) {
+                            final message = messages[index];
+                            switch (message.messageType) {
+                              case MessageTypes.text:
+                                return BuildMessage(
+                                  messageModel: message,
+                                );
+                            }
+                            return SizedBox();
+                          },
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+            ChatPageBottomNavigation(
+              controller: controller,
+              receiverId: receiverId,
             ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
